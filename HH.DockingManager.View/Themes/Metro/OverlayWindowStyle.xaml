@@ -1,0 +1,238 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:avalonDockControls="http://schemas.xceed.com/wpf/xaml/avalondock">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/HH.Styles.View;component/Brushes/DefaultBrushes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="{x:Type avalonDockControls:OverlayWindow}" TargetType="{x:Type avalonDockControls:OverlayWindow}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type avalonDockControls:OverlayWindow}">
+                    <Canvas x:Name="PART_DropTargetsContainer" Opacity="0.9">
+                        <Path x:Name="PART_PreviewBox"
+                              Fill="{DynamicResource WindowBackgroundBrush}"
+                              Stroke="{DynamicResource AccentColorBrush}"
+                              StrokeThickness="2" />
+                        <Grid x:Name="PART_DockingManagerDropTargets">
+                            <Image x:Name="PART_DockingManagerDropTargetLeft"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockAnchorableLeft.PNG"
+                                   Stretch="None" />
+                            <Image x:Name="PART_DockingManagerDropTargetRight"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockAnchorableRight.PNG"
+                                   Stretch="None" />
+                            <Image x:Name="PART_DockingManagerDropTargetBottom"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom"
+                                   Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockAnchorableBottom.PNG"
+                                   Stretch="None" />
+                            <Image x:Name="PART_DockingManagerDropTargetTop"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockAnchorableTop.PNG"
+                                   Stretch="None" />
+                        </Grid>
+                        <Grid x:Name="PART_AnchorablePaneDropTargets">
+                            <Grid Width="112"
+                                  Height="112"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Image Grid.RowSpan="3"
+                                       Grid.ColumnSpan="3"
+                                       Margin="0,0.5,0,-0.5"
+                                       Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockPaneEmpty.png"
+                                       Stretch="None" />
+                                <Border Name="PART_AnchorablePaneDropTargetTop"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Margin="0,3.5,0, 0">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableTop.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_AnchorablePaneDropTargetLeft"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Margin="2">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableLeft.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_AnchorablePaneDropTargetInto"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Margin="0,0.5,0,0">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentInside.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_AnchorablePaneDropTargetRight"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Margin="2">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableRight.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_AnchorablePaneDropTargetBottom"
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Margin="0,-0.5,0,0">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableBottom.png" Stretch="None" />
+                                </Border>
+                            </Grid>
+                        </Grid>
+                        <Grid x:Name="PART_DocumentPaneDropTargets">
+                            <Grid Width="112"
+                                  Height="112"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Image Grid.RowSpan="3"
+                                       Grid.ColumnSpan="3"
+                                       Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockPaneEmpty.PNG"
+                                       Stretch="None" />
+                                <Border Name="PART_DocumentPaneDropTargetTop"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Margin="2">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentTop.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneDropTargetLeft"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Margin="2">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentLeft.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneDropTargetInto"
+                                        Grid.Row="1"
+                                        Grid.Column="1">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentInside.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneDropTargetRight"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Margin="2">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentRight.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneDropTargetBottom"
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Margin="2">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentBottom.png" Stretch="None" />
+                                </Border>
+                            </Grid>
+                        </Grid>
+
+                        <Grid x:Name="PART_DocumentPaneFullDropTargets">
+                            <Grid Width="184"
+                                  Height="184"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Image Grid.RowSpan="5"
+                                       Grid.ColumnSpan="5"
+                                       Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockPaneLargeEmpty.PNG"
+                                       Stretch="None" />
+
+                                <Border Name="PART_DocumentPaneDropTargetTopAsAnchorablePane"
+                                        Grid.Row="0"
+                                        Grid.Column="2">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableTop.png"
+                                           Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneFullDropTargetTop"
+                                        Grid.Row="1"
+                                        Grid.Column="2">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentTop.png"
+                                           Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneDropTargetLeftAsAnchorablePane"
+                                        Grid.Row="2"
+                                        Grid.Column="0">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableLeft.png"
+                                           Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneFullDropTargetLeft"
+                                        Grid.Row="2"
+                                        Grid.Column="1">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentLeft.png"
+                                           Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneFullDropTargetInto"
+                                        Grid.Row="2"
+                                        Grid.Column="2">
+                                    <Image Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentInside.png" Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneFullDropTargetRight"
+                                        Grid.Row="2"
+                                        Grid.Column="3">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentRight.png"
+                                           Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneDropTargetRightAsAnchorablePane"
+                                        Grid.Row="2"
+                                        Grid.Column="4">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableRight.png"
+                                           Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneFullDropTargetBottom"
+                                        Grid.Row="3"
+                                        Grid.Column="2">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentBottom.png"
+                                           Stretch="None" />
+                                </Border>
+                                <Border Name="PART_DocumentPaneDropTargetBottomAsAnchorablePane"
+                                        Grid.Row="4"
+                                        Grid.Column="2">
+                                    <Image Margin="2"
+                                           Source="/Xceed.Wpf.AvalonDock.Themes.Metro;component/Images/DockDocumentAsAnchorableBottom.png"
+                                           Stretch="None" />
+                                </Border>
+
+                            </Grid>
+                        </Grid>
+
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

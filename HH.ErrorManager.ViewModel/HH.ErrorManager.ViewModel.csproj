@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB2A3574-B30C-4C55-A9F0-65AF7A664260}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HH.ErrorManager.ViewModel</RootNamespace>
+    <AssemblyName>HH.ErrorManager.ViewModel</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\HH.Data.Collections\HH.Data.Collections.csproj">
+      <Project>{E8F740F3-9201-422E-8D8B-71395917C838}</Project>
+      <Name>HH.Data.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Data.Entity.Model\HH.Data.Entity.Model.csproj">
+      <Project>{a3b70d94-5311-4010-af50-5f503762f3c7}</Project>
+      <Name>HH.Data.Entity.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Data.Entity.ViewModel\HH.Data.Entity.ViewModel.csproj">
+      <Project>{8A0A841A-EDA7-4732-9BA3-A9011F58D0D2}</Project>
+      <Name>HH.Data.Entity.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.EnvironmentServices\HH.EnvironmentServices.csproj">
+      <Project>{3206d4bf-6905-4f85-bc87-7a407b3c4309}</Project>
+      <Name>HH.EnvironmentServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.ErrorManager.Model\HH.ErrorManager.Model.csproj">
+      <Project>{007fecd2-50fd-4591-a1e0-270980d05742}</Project>
+      <Name>HH.ErrorManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Extensions\HH.Extensions.csproj">
+      <Project>{721E3FEE-E336-466D-932F-3CB03FBC84EA}</Project>
+      <Name>HH.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.ViewModel\HH.ViewModel.csproj">
+      <Project>{BBCFF2DE-CEDB-4864-843A-46F846024F16}</Project>
+      <Name>HH.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Implementations\ErrorInfoContainerViewModel.cs" />
+    <Compile Include="Implementations\ErrorInfoContainerViewModelFactory.cs" />
+    <Compile Include="Implementations\ErrorInfoViewModel.cs" />
+    <Compile Include="Implementations\ErrorInfoViewModelFactory.cs" />
+    <Compile Include="Implementations\ErrorManagerViewModel.cs" />
+    <Compile Include="Interfaces\IErrorInfoContainerViewModel.cs" />
+    <Compile Include="Interfaces\IErrorInfoContainerViewModelFactory.cs" />
+    <Compile Include="Interfaces\IErrorInfoViewModel.cs" />
+    <Compile Include="Interfaces\IErrorInfoViewModelFactory.cs" />
+    <Compile Include="Interfaces\IErrorManagerViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

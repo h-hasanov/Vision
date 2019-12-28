@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B6EB702-D28E-49B7-9A57-EBD9F2624493}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HH.ErrorManager.View</RootNamespace>
+    <AssemblyName>HH.ErrorManager.View</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Converters\ErrorSeverityToGlyphConverter.cs" />
+    <Compile Include="ErrorManager\ErrorManagerView.xaml.cs">
+      <DependentUpon>ErrorManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resources\Labels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Selectors\ErrorStyleSelector.cs" />
+    <EmbeddedResource Include="Resources\Labels.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ErrorManager\ErrorManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HH.Data.Collections\HH.Data.Collections.csproj">
+      <Project>{e8f740f3-9201-422e-8d8b-71395917c838}</Project>
+      <Name>HH.Data.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Data.Entity.ViewModel\HH.Data.Entity.ViewModel.csproj">
+      <Project>{8a0a841a-eda7-4732-9ba3-a9011f58d0d2}</Project>
+      <Name>HH.Data.Entity.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.EnvironmentServices\HH.EnvironmentServices.csproj">
+      <Project>{3206d4bf-6905-4f85-bc87-7a407b3c4309}</Project>
+      <Name>HH.EnvironmentServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.ErrorManager.Model\HH.ErrorManager.Model.csproj">
+      <Project>{007fecd2-50fd-4591-a1e0-270980d05742}</Project>
+      <Name>HH.ErrorManager.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.ErrorManager.ViewModel\HH.ErrorManager.ViewModel.csproj">
+      <Project>{db2a3574-b30c-4c55-a9f0-65af7a664260}</Project>
+      <Name>HH.ErrorManager.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Icons.Model\HH.Icons.Model.csproj">
+      <Project>{05050F89-5328-4BBA-9100-E0856C98EBC3}</Project>
+      <Name>HH.Icons.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Icons.View\HH.Icons.View.csproj">
+      <Project>{38B99E65-0FDA-42C9-B183-E9AC40492B23}</Project>
+      <Name>HH.Icons.View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Styles.View\HH.Styles.View.csproj">
+      <Project>{c688e758-e04e-405d-88c1-69158c50d6f0}</Project>
+      <Name>HH.Styles.View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.ViewModel\HH.ViewModel.csproj">
+      <Project>{bbcff2de-cedb-4864-843a-46f846024f16}</Project>
+      <Name>HH.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

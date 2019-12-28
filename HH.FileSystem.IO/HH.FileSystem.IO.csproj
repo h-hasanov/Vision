@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F4C7726-CF83-4855-8CEE-EC97020D4C94}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HH.FileSystem.IO</RootNamespace>
+    <AssemblyName>HH.FileSystem.IO</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <EmbeddedResource Include="Resources\EnumResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnumResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\VersionAssemblyInfo.cs">
+      <Link>Properties\VersionAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Compression\Converters\CompressionLevelConverter.cs" />
+    <Compile Include="Compression\Converters\ZipArchiveModeConverter.cs" />
+    <Compile Include="Compression\Enums\CompressionLevel.cs" />
+    <Compile Include="Compression\Enums\ZipArchiveMode.cs" />
+    <Compile Include="Compression\Factories\Implementations\ZipArchiveFactory.cs" />
+    <Compile Include="Compression\Factories\Interfaces\IZipArchiveFactory.cs" />
+    <Compile Include="Compression\Implementations\ZipArchive.cs" />
+    <Compile Include="Compression\Implementations\ZipArchiveDirectory.cs" />
+    <Compile Include="Compression\Implementations\ZipArchiveEntry.cs" />
+    <Compile Include="Compression\Interfaces\IZipArchive.cs" />
+    <Compile Include="Compression\Interfaces\IZipArchiveDirectory.cs" />
+    <Compile Include="Compression\Interfaces\IZipArchiveEntry.cs" />
+    <Compile Include="CsvReader\Interfaces\ICsvReader.cs" />
+    <Compile Include="CsvReader\Interfaces\ICsvReaderFactory.cs" />
+    <Compile Include="Enums\TextQualifierType.cs" />
+    <Compile Include="Enums\TextQualifierTypeExtensions.cs" />
+    <Compile Include="FileReader\Implementations\DataFieldDefinition.cs" />
+    <Compile Include="FileReader\Implementations\DataFieldDefinitionFactory.cs" />
+    <Compile Include="FileReader\Implementations\DelimitedTextReaderConfiguration.cs" />
+    <Compile Include="FileReader\Implementations\DelimitedTextService.cs" />
+    <Compile Include="FileReader\Implementations\DelimitedTextReader.cs" />
+    <Compile Include="FileReader\Implementations\TypeDetectionService.cs" />
+    <Compile Include="FileReader\Interfaces\IDataFieldDefinition.cs" />
+    <Compile Include="FileReader\Interfaces\IDataFieldDefinitionFactory.cs" />
+    <Compile Include="FileReader\Interfaces\IDelimitedTextReaderConfiguration.cs" />
+    <Compile Include="FileReader\Interfaces\IDelimitedTextService.cs" />
+    <Compile Include="FileReader\Interfaces\ITypeDetectionService.cs" />
+    <Compile Include="FileWriter\DelimitedTextWriter.cs" />
+    <Compile Include="Interfaces\IDelimitedTextWriter.cs" />
+    <Compile Include="Interfaces\IFileSystemService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\EnumResources.Designer.cs">
+      <DependentUpon>EnumResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="StreamServices\Factories\Implementations\StreamReaderFactory.cs" />
+    <Compile Include="StreamServices\Factories\Implementations\StreamWriterFactory.cs" />
+    <Compile Include="StreamServices\Factories\Interfaces\IStreamReaderFactory.cs" />
+    <Compile Include="StreamServices\Factories\Interfaces\IStreamWriterFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HH.Data\HH.Data.csproj">
+      <Project>{0FB44A83-3575-4DFD-8B41-4CD9A166DBD0}</Project>
+      <Name>HH.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.EnvironmentServices\HH.EnvironmentServices.csproj">
+      <Project>{3206D4BF-6905-4F85-BC87-7A407B3C4309}</Project>
+      <Name>HH.EnvironmentServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Extensions\HH.Extensions.csproj">
+      <Project>{721E3FEE-E336-466D-932F-3CB03FBC84EA}</Project>
+      <Name>HH.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HH.Presentation\HH.Presentation.csproj">
+      <Project>{49C6674E-9D7E-4226-B1CF-B26430AFFFC0}</Project>
+      <Name>HH.Presentation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:avalonDockProperties="clr-namespace:Xceed.Wpf.AvalonDock.Properties;assembly=Xceed.Wpf.AvalonDock"
+                    xmlns:view="clr-namespace:HH.Icons.View;assembly=HH.Icons.View"
+                    xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/HH.Icons.View;component/VectorGraphics/ImagesResources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <xcad:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+    <ContextMenu x:Key="AvalonDockThemeMetroAnchorableContextMenu">
+        <MenuItem Command="{Binding Path=FloatCommand}" Header="{x:Static avalonDockProperties:Resources.Anchorable_Float}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="MultipleWindow" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=DockCommand}" Header="{x:Static avalonDockProperties:Resources.Anchorable_Dock}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="TabControl" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=DockAsDocumentCommand}" Header="{x:Static avalonDockProperties:Resources.Anchorable_DockAsDocument}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="TabControl" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=AutoHideCommand}" Header="{x:Static avalonDockProperties:Resources.Anchorable_AutoHide}" />
+        <MenuItem Command="{Binding Path=HideCommand}"
+                  Header="{x:Static avalonDockProperties:Resources.Anchorable_Hide}"
+                  Visibility="{Binding Path=IsEnabled,
+                                       RelativeSource={RelativeSource Self},
+                                       Mode=OneWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}" />
+    </ContextMenu>
+
+    <ContextMenu x:Key="AvalonDockThemeMetroDocumentContextMenu">
+        <MenuItem Command="{Binding Path=CloseCommand}"
+                  Header="{x:Static avalonDockProperties:Resources.Document_Close}"
+                  Visibility="{Binding Path=IsEnabled,
+                                       RelativeSource={RelativeSource Self},
+                                       Mode=OneWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}">
+            <MenuItem.Icon>
+                <ContentControl Content="{StaticResource CloseVectorIcon}" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=CloseAllButThisCommand}" Header="{x:Static avalonDockProperties:Resources.Document_CloseAllButThis}" />
+        <MenuItem Command="{Binding Path=FloatCommand}" Header="{x:Static avalonDockProperties:Resources.Document_Float}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="MultipleWindow" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=DockAsDocumentCommand}" Header="{x:Static avalonDockProperties:Resources.Document_DockAsDocument}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="TabControl" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=NewHorizontalTabGroupCommand}"
+                  Header="{x:Static avalonDockProperties:Resources.Document_NewHorizontalTabGroup}"
+                  Visibility="{Binding Path=IsEnabled,
+                                       RelativeSource={RelativeSource Self},
+                                       Mode=OneWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="HorizontalTabGroup" />
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Command="{Binding Path=NewVerticalTabGroupCommand}"
+                  Header="{x:Static avalonDockProperties:Resources.Document_NewVerticalTabGroup}"
+                  Visibility="{Binding Path=IsEnabled,
+                                       RelativeSource={RelativeSource Self},
+                                       Mode=OneWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="VerticalTabGroup" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=MoveToNextTabGroupCommand}"
+                  Header="{x:Static avalonDockProperties:Resources.Document_MoveToNextTabGroup}"
+                  Visibility="{Binding Path=IsEnabled,
+                                       RelativeSource={RelativeSource Self},
+                                       Mode=OneWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="NextTabGroup" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem Command="{Binding Path=MoveToPreviousTabGroupCommand}"
+                  Header="{x:Static avalonDockProperties:Resources.Document_MoveToPreviousTabGroup}"
+                  Visibility="{Binding Path=IsEnabled,
+                                       RelativeSource={RelativeSource Self},
+                                       Mode=OneWay,
+                                       Converter={StaticResource BoolToVisibilityConverter}}">
+            <MenuItem.Icon>
+                <view:GlyphTextBlock Glyph="PreviousTabGroup" />
+            </MenuItem.Icon>
+        </MenuItem>
+    </ContextMenu>
+</ResourceDictionary>
